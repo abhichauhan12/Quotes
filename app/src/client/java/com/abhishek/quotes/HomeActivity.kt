@@ -14,19 +14,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
-
-    @Inject lateinit var fetchAPI: QuoteFetchAPI
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
-
-        CoroutineScope(Dispatchers.IO + Job()).launch {
-            val result = fetchAPI.getQuotes(viewedQuoteIds = "", selectedLanguages = "").body()
-            withContext(Dispatchers.Main) {
-                Toast.makeText(this@HomeActivity, result, Toast.LENGTH_LONG).show()
-            }
-        }
     }
 }
