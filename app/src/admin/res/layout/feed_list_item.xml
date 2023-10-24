@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="quote"
+            type="com.abhishek.quotes.domain.model.Quote" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
+        >
+
+        <ImageView
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            tools:src="@tools:sample/avatars"
+            android:id="@+id/quote_thumbnail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/quote_thumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Start your day with WHY, then get on with your WHAT"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:id="@+id/quote_message"
+            app:layout_constraintTop_toTopOf="@id/quote_thumbnail"
+            android:layout_marginStart="16dp"
+            android:text="@{quote.message}"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/quote_message"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Darren Hardy"
+            android:textAppearance="?textAppearanceBody1"
+            android:id="@+id/quote_author"
+            android:layout_marginTop="8dp"
+            android:text="@{quote.formattedAuthor}"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

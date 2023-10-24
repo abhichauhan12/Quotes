@@ -5,12 +5,10 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface QuoteFetchAPI {
+interface QuotesAPI {
 
     @GET("fetch")
     suspend fun getQuotes(
-        @Query("max_quotes") maxQuotes : Int = 10,
-        @Query("viewed_quotes_ids") viewedQuoteIds : String = "", // "1,2,3,4,5,6"
-        @Query("selected_languages") selectedLanguages : String = "", // "hi,en"
+        @Query("max_quotes") maxCount : Int = 20
     ) : Response<List<Quote>>
 }

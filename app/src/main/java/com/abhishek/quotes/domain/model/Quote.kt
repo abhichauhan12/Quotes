@@ -1,4 +1,4 @@
-package com.abhishek.quotes.domain.model.quote
+package com.abhishek.quotes.domain.model
 
 import com.squareup.moshi.JsonClass
 import java.net.URL

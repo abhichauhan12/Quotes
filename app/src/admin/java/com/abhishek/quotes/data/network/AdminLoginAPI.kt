@@ -11,7 +11,6 @@ interface AdminLoginAPI {
     @POST("auth")
     suspend fun login(
         @Query("username") username: String,
-        @Header("token") token : String,
     ) : Response<AuthResponse>
 
 }

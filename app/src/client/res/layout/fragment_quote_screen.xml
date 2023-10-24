@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.abhishek.quotes.domain.model.quote.Quote"/>
+        <import type="com.abhishek.quotes.domain.model.Quote"/>
         <variable
             name="quote"
-            type="Quote" />
+            type="com.abhishek.quotes.domain.model.Quote" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,13 +45,13 @@
             android:layout_marginHorizontal="32dp"
             android:fontFamily="@font/berkshire_swash"
             android:gravity="center"
-            tools:text="Start your day with why, then get on with your what"
             android:textAppearance="?textAppearanceHeadline5"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Start your day with why, then get on with your what" />
 
         <TextView
             android:layout_width="0dp"

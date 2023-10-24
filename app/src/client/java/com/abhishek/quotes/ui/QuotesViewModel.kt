@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.abhishek.quotes.data.network.QuoteFetchAPI
 import com.abhishek.quotes.domain.model.network.QuoteFetchStatus
-import com.abhishek.quotes.domain.model.quote.Quote
+import com.abhishek.quotes.domain.model.Quote
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

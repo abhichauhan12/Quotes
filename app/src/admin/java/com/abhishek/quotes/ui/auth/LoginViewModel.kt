@@ -26,7 +26,7 @@ class LoginViewModel @Inject constructor(
 
     fun login(username: String, token: String) {
         viewModelScope.launch {
-            val response = adminLoginAPI.login(username, token)
+            val response = adminLoginAPI.login(username)
             val code = response.code()
             val responseBody: AuthResponse? = response.body()
 

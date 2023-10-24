@@ -13,28 +13,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
-    private val homeViewModel by viewModels<HomeViewModel>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
-        lifecycleScope.launch {
-
-            launch {
-                homeViewModel.adminData.collectLatest {
-                    findViewById<TextView>(R.id.username).text = it.username ?: "Empty/Null username"
-                }
-            }
-
-            launch {
-                homeViewModel.quotes.collectLatest {
-                    if (it.isNotEmpty()) {
-                        // add data in list adapter
-                    }
-                }
-            }
-
-        }
     }
 }
