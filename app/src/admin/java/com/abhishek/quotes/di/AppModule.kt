@@ -1,6 +1,7 @@
 package com.abhishek.quotes.di
 
 import com.abhishek.quotes.data.network.AdminLoginAPI
+import com.abhishek.quotes.data.network.QuoteFetchAPI
 import com.abhishek.quotes.data.network.QuotesService
 import dagger.Module
 import dagger.Provides
@@ -23,5 +24,11 @@ object AppModule {
     @Provides
     fun provideQuotesService(): Retrofit {
         return QuotesService.getRetrofitInstance()
+    }
+
+    @Singleton
+    @Provides
+    fun provideQuotesFetchAPI(retrofit: Retrofit): QuoteFetchAPI {
+        return retrofit.create(QuoteFetchAPI::class.java)
     }
 }

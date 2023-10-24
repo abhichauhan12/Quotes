@@ -20,9 +20,21 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         lifecycleScope.launch {
-            homeViewModel.adminData.collectLatest {
-                findViewById<TextView>(R.id.username).text = it.username ?: "Empty/Null username"
+
+            launch {
+                homeViewModel.adminData.collectLatest {
+                    findViewById<TextView>(R.id.username).text = it.username ?: "Empty/Null username"
+                }
             }
+
+            launch {
+                homeViewModel.quotes.collectLatest {
+                    if (it.isNotEmpty()) {
+                        // add data in list adapter
+                    }
+                }
+            }
+
         }
     }
 }
