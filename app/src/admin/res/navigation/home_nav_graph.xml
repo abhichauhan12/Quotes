@@ -9,6 +9,26 @@
         android:id="@+id/feed_screen"
         android:name="com.abhishek.quotes.ui.home.feed.Feed"
         android:label="Feed"
-        tools:layout="@layout/fragment_feed"
-        />
+        tools:layout="@layout/fragment_feed">
+        <action
+            android:id="@+id/action_feed_screen_to_addQuotes"
+            app:destination="@id/add_quotes_screen" />
+        <action
+            android:id="@+id/action_feed_screen_to_editQuote"
+            app:destination="@id/edit_quote_screen" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_quotes_screen"
+        android:name="com.abhishek.quotes.ui.home.quote.add.AddQuotes"
+        android:label="AddQuotes"
+        tools:layout="@layout/fragment_add_quote" />
+    <fragment
+        android:id="@+id/edit_quote_screen"
+        android:name="com.abhishek.quotes.ui.home.quote.edit.EditQuote"
+        android:label="EditQuote"
+        tools:layout="@layout/fragment_add_quote" >
+        <argument
+            android:name="quote"
+            app:argType="com.abhishek.quotes.domain.model.Quote" />
+    </fragment>
 </navigation>

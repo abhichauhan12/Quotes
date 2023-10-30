@@ -10,7 +10,9 @@ import com.abhishek.quotes.databinding.FeedListItemBinding
 import com.abhishek.quotes.domain.model.Quote
 import com.bumptech.glide.Glide
 
-class FeedAdapter : ListAdapter<Quote, FeedAdapter.FeedItemViewHolder>(FeedItemDiffUtil) {
+class FeedAdapter(
+    private val onQuotePressed : (Quote) -> Unit
+) : ListAdapter<Quote, FeedAdapter.FeedItemViewHolder>(FeedItemDiffUtil) {
 
     object FeedItemDiffUtil : DiffUtil.ItemCallback<Quote>() {
         override fun areItemsTheSame(oldItem: Quote, newItem: Quote): Boolean {
@@ -20,13 +22,15 @@ class FeedAdapter : ListAdapter<Quote, FeedAdapter.FeedItemViewHolder>(FeedItemD
         override fun areContentsTheSame(oldItem: Quote, newItem: Quote) = oldItem == newItem
     }
 
-    class FeedItemViewHolder(private val binding: FeedListItemBinding) :
+    inner class FeedItemViewHolder(private val binding: FeedListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(quote: Quote) {
             binding.quote = quote
             binding.executePendingBindings()
             Glide.with(binding.root).load(quote.decodedImageUrl()).placeholder(R.mipmap.ic_launcher)
                 .into(binding.quoteThumbnail)
+
+            binding.root.setOnClickListener{ onQuotePressed(quote) }
         }
     }
 
